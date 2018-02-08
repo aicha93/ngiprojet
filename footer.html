@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello World</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="//d3js.org/d3.v4.min.js"></script>
+    <script src="GMLIB/info.js"></script>
+    <script src="GMLIB/system.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Base css, but you'll likely want to keep them -->
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+
+    <!-- Your custom files -->
+    <link rel="stylesheet" href="css/app.css" type="text/css">
+
+    <script src="js/ngi.polyfill.min.js"></script>
+    <script src="GMLIB/system.js"></script>
+    <script src="GMLIB/info.js"></script>
+
+    <!-- Uncomment libraries as you need them: -->
+    <!-- <script src="GMLIB/comm.js"></script> -->
+    <!-- <script src="GMLIB/io.js"></script> -->
+    <!-- <script src="GMLIB/media.js"></script> -->
+    <script src="GMLIB/nav.js"></script>
+    <!-- <script src="GMLIB/phone.js"></script> -->
+    <!-- <script src="GMLIB/ui.js"></script> -->
+    <!-- <script src="GMLIB/voice.js"></script> -->
+
+</head>
+<body>
+<div id="wrapper">
+    <div id="close"><img src="images/close.png" onclick="gm.system.closeApp()" alt="close"></div>
+    <div id="main">
+   <div id="map-container">
+        <div id="map"></div>
+		</div>
+        <div id="list-container">
+		   <h2><u>Hopitaux/Cliniques proches de votre destination</u> :</h2>
+            <ul id="hopitaux"></ul>
+     
+     </div>
+	 
+	    <div id="list-container">
+		   <h2><u>Pharmacies proches de votre destination</u> :</h2>
+            <ul id="pharmacies"></ul>
+     
+     </div>
+	 </div>
+	
+        	</div>
+			
+			
+
+        	
+        	
+    
+ 
+<script>
+    var map;
+    var latitude = 40.4406;
+    var longitude = 79.9959;
+    var foodMarkers = [];
+    var restaurants = [];
+    var currentRest = 0;
+
+
+    function myMap() {
+        console.log(longitude + " " + latitude);
+        var mapOptions = {
+            center: {lat: latitude, lng: longitude},
+            zoom: 14,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        var currentMarker = new google.maps.Marker({
+            position: {lat: latitude, lng: longitude},
+            map: map
+        });
+    }
+</script>
+
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkgq6skqj_3s0ME2aQHUmq6N_EJ4iADKs&callback=myMap"></script>
+<script src="js/app.js"></script>
+
+
+</body>
+</html>
